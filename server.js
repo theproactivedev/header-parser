@@ -32,6 +32,11 @@ app.route('/_api/package.json')
       res.type('txt').send(data.toString());
     });
   });
+
+app.route("/whoami").get(function(req, res) {
+  
+
+});
   
 app.route('/')
     .get(function(req, res) {
