@@ -34,7 +34,13 @@ app.route('/_api/package.json')
   });
 
 app.route("/whoami").get(function(req, res) {
+    const ip = req.headers["x-forwarded-for"] ||
+              req.connection.remoteAddress ||
+              req.socket.remoteAddress ||
+              req.connection.socket.remoteAddress;
   
+    var language = req.headers["accept-language"].split(",")[0];
+    var 
 
 });
   
