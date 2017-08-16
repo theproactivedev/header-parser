@@ -40,7 +40,15 @@ app.route("/whoami").get(function(req, res) {
               req.connection.socket.remoteAddress;
   
     var language = req.headers["accept-language"].split(",")[0];
-    var 
+    var os = req.headers["user-agent"];
+  
+  var output = {
+    IP : ip.split(",")[0],
+    language : 
+  }
+  
+  res.send();
+
 
 });
   
