@@ -33,6 +33,8 @@ app.route('/_api/package.json')
     });
   });
 
+app.set('json spaces', 2);
+
 app.route("/whoami").get(function(req, res) {
     const ip = req.headers["x-forwarded-for"] ||
               req.connection.remoteAddress ||
@@ -40,14 +42,15 @@ app.route("/whoami").get(function(req, res) {
               req.connection.socket.remoteAddress;
   
     var language = req.headers["accept-language"].split(",")[0];
-    var os = req.headers["user-agent"];
+    var os = req.headers["user-agent"].split(') ')[0].split(' (')[1];
   
   var output = {
     IP : ip.split(",")[0],
-    language : 
-  }
+    language : language,
+    OS : os
+  };
   
-  res.send();
+  res.json(output);
 
 
 });
